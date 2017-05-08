@@ -111,6 +111,17 @@
 						$elem = $( selector );
 					}
 
+					var include = function (haystack, needle) {
+						for (var i = 0; i < haystack.length; i++) {
+							if (haystack[i] === needle) return true
+						}
+
+						return false
+					},
+					hrefs = [],
+					i = 0
+					currentHref = $(this).attr('href');
+
 					$elem.each( function() {
 
 						var title = null,
@@ -125,10 +136,20 @@
 							href = $( this ).attr( 'href' );
 						}
 
-						elements.push( {
-							href: href,
-							title: title
-						} );
+						if (include(hrefs, href)) {
+
+						} else {
+							if (currentHref === href) {
+								index = i;
+							}
+
+							elements.push( {
+								href: href,
+								title: title
+							} );
+
+							i++;
+						}
 					} );
 
 					index = $elem.index( $( this ) );
@@ -756,7 +777,7 @@
 				if ( a.search ) {
 					qs = JSON.parse( '{"' + a.search.toLowerCase().replace('?','').replace(/&/g,'","').replace(/=/g,'":"') + '"}' );
 				}
-				
+
 				// Extend with custom data
 				if ( $.isPlainObject( customData ) ) {
 					qs = $.extend( qs, customData, plugin.settings.queryStringData ); // The dev has always the final word
