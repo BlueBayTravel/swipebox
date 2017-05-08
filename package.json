@@ -1,0 +1,11 @@
+{
+  "name": "swipebox",
+  "version": "1.4.4",
+  "main": "src/js/jquery.swipebox.js",
+  "description": "A touchable jQuery lightbox",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brutaldesign/swipebox.git"
+  },
+  "license": "MIT"
+}
