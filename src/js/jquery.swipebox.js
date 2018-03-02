@@ -627,6 +627,13 @@
 					slider.animate( { left : ( -index*100 )+'%' } );
 				}
 
+				if ( index === 0 ) {
+					$( '#swipebox-prev' ).addClass( 'disabled' );
+				} else if ( index === elements.length - 1 && plugin.settings.loopAtEnd !== true ) {
+					$( '#swipebox-next' ).addClass( 'disabled' );
+					$( '#swipebox-slider .slide' ).eq( index ).addClass( 'Last_Slide' );
+				}
+
 				$( '#swipebox-slider .slide' ).removeClass( 'current' );
 				$( '#swipebox-slider .slide' ).eq( index ).addClass( 'current' );
 				this.setTitle( index );
@@ -637,11 +644,6 @@
 
 				$( '#swipebox-prev, #swipebox-next' ).removeClass( 'disabled' );
 
-				if ( index === 0 ) {
-					$( '#swipebox-prev' ).addClass( 'disabled' );
-				} else if ( index === elements.length - 1 && plugin.settings.loopAtEnd !== true ) {
-					$( '#swipebox-next' ).addClass( 'disabled' );
-				}
 			},
 
 			/**
