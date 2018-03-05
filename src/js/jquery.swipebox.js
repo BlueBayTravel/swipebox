@@ -631,7 +631,7 @@
 					$( '#swipebox-prev' ).addClass( 'disabled' );
 				} else if ( index === elements.length - 1 && plugin.settings.loopAtEnd !== true ) {
 					$( '#swipebox-next' ).addClass( 'disabled' );
-					$( '#swipebox-slider .slide' ).eq( index ).addClass( 'Last_Slide' );
+					$( '#swipebox-slider .slide' ).eq( index ).addClass( 'last-slide' );
 				}
 
 				$( '#swipebox-slider .slide' ).removeClass( 'current' );
